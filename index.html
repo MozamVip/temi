@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Temi ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #f7d794;
+            --text-color: #2d3436;
+            --section-padding: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .header {
+            text-align: center;
+            padding: var(--section-padding);
+            margin-bottom: 2rem;
+        }
+
+        .typing-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--primary-color);
+            border-right: 4px solid var(--primary-color);
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3s steps(20) forwards,
+                       blink 0.5s step-end infinite alternate;
+            margin: 0 auto;
+            max-width: fit-content;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent }
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: var(--section-padding);
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.5s ease-out forwards;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+        }
+
+        .reasons-list {
+            list-style: none;
+        }
+
+        .reasons-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .reasons-list li::before {
+            content: '❤️';
+            position: absolute;
+            left: 0;
+            transform: scale(0);
+            animation: popIn 0.3s ease-out forwards;
+        }
+
+        @keyframes popIn {
+            to { transform: scale(1); }
+        }
+
+        .question-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .question-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .typing-text {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="typing-text">Dear, Temitope Atselefun</h1>
+        </header>
+
+        <section class="section">
+            <h2>Why You're Special, Temi</h2>
+            <ul class="reasons-list">
+                <li>Your smile lights up any room you walk into and never fails to make my day brighter</li>
+                <li>The way you're passionate about the things you love inspires me every single day</li>
+                <li>The way you listen so attentively makes every conversation feel meaningful.</li>
+                <li>The sound of your laughter is my favorite melody</li>
+                <li>Your intelligence and wit make every conversation with you an adventure</li>
+                <li>The way your eyes sparkle when you're excited about something is simply magical</li>
+                <li>Your determination to achieve your goals is truly inspiring</li>
+                <li>The genuine warmth you show to everyone around you</li>
+                <li>Your ability to find joy in the little things in life</li>
+                <li>The way you make me feel like I can be completely myself around you</li>
+                <li>Your hugs feel like the safest and warmest place in the world.</li>
+                <li>Your endless curiosity and willingness to learn new things.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Truth or Dare?</h2>
+            <div id="truthDare"></div>
+            <button class="button" onclick="showRandomQuestion('truth')">Truth</button>
+            <button class="button" onclick="showRandomQuestion('dare')">Dare</button>
+        </section>
+
+        <section class="section">
+            <h2>Let's Get to Know Each Other Better</h2>
+            <div id="dateQuestions"></div>
+            <button class="button" onclick="showRandomDateQuestion()">Next Question</button>
+        </section>
+
+        <div class="gift-section">
+            <h2>A Special Gift For You</h2>
+            <p>Click to unwrap your surprise! ✨</p>
+            <div class="gift-container" onclick="openGift()">
+                <div class="gift-box">
+                    <div class="gift-lid"></div>
+                    <div class="gift-box-main">
+                        <div class="gift-ribbon"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="gift-content" id="giftContent">
+                <h3>Countdown 🎉</h3>
+                <p id="timer"></p>
+                <!-- <h3>🎉 Surprise! Your Journey to UX/UI Design Begins Here! 🎨</h3>
+                <p>Because I believe in your creative dreams and want to support your passion for UX/UI design...</p>
+                <div class="credential-box">
+                    <p><strong>Your Udemy Course Access:</strong></p>
+                    <p>Email: [Your Udemy Email]</p>
+                    <p>Password: [Your Udemy Password]</p>
+                </div>
+                <p>Can't wait to see the amazing interfaces you'll design! 💕</p> -->
+            </div>
+        </div>
+    
+        <script>
+            function openGift() {
+                const giftContainer = document.querySelector('.gift-container');
+                const giftContent = document.getElementById('giftContent');
+                
+                if (!giftContainer.classList.contains('opened')) {
+                    giftContainer.classList.add('opened');
+                    
+                    setTimeout(() => {
+                        giftContent.classList.add('visible');
+                    }, 1000);
+                }
+            }
+        </script>
+    </div>
+
+    <script>
+        // Set countdown time (120 hours = 120 * 60 * 60 * 1000 milliseconds)
+        const countdownTime = Date.now() + 120 * 60 * 60 * 1000;
+
+        function updateTimer() {
+            const now = Date.now();
+            const timeLeft = countdownTime - now;
+
+            if (timeLeft <= 0) {
+                document.getElementById("timer").innerHTML = "Time's up!";
+                clearInterval(timerInterval);
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = 
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        updateTimer();
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+
+    <script>
+        const truthQuestions = [
+            "What was your first impression of me?",
+            "What's the most romantic thing you've ever done?",
+            "you are a mad scientist, what scientific experiment would you run if money and ethics weren't an issue?",
+            "if your doppelganger suddenly appeared, how would you prove to me that you are the real one",
+            "What Questions would you like to ask a time traveller from 20 years in the future",
+            "What's your favorite memory of us together?",
+            "What's the most thoughtful gift you've ever received?",
+            "if you were suddenly arrested by the police, what would you think i would assume you've done?",
+            "if you have the power of invisibility for one whole day, what would you do",
+            "if a snake bit my butt, would you be willing to suck the venom out?",
+            "whats your deepest sexual fantasy",
+            "What's your favorite way to spend a lazy Sunday?",
+            "if i offered to do somrthing really funny for you for free, what would you ask me to do ?",
+            "if you could to stay a certain age forever, what age would it be",
+            "if you were in witness protection program, what would be your name and where would you go"
+
+        ];
+
+        const dares = [
+            "Send me your favorite selfie",
+            "Do your best dance move right now",
+            "Tell me a cheesy pickup line",
+            "Sing a few lines of your favorite love song",
+            "Act like a stripper for 1 minute and dance on an imaginary stripper pole",
+            "Draw a quick sketch of me",
+            "Tell me three things you like about yourself",
+            "I dare you to lick your elbow with your tongue",
+            "Show me your best impression of a celebrity",
+            "Look into your patner eyes for 20 seconds"
+        ];
+
+        const dateQuestions = [
+            "What's the most important quality you look for in a partner?",
+            "Where do you see yourself in five years?",
+            "What's your favorite childhood memory?",
+            "What's the best piece of advice you've ever received?",
+            "What's something you've always wanted to learn?",
+            "What makes you laugh the most?",
+            "What's your biggest passion in life?",
+            "What's the most beautiful place you've ever been to?",
+            "What's your favorite way to show someone you care?",
+            "What's something that always makes you smile?"
+        ];
+
+        function showRandomQuestion(type) {
+            const questions = type === 'truth' ? truthQuestions : dares;
+            const randomIndex = Math.floor(Math.random() * questions.length);
+            const questionDiv = document.getElementById('truthDare');
+            questionDiv.innerHTML = `
+                <div class="question-card">
+                    <p>${questions[randomIndex]}</p>
+                </div>
+            `;
+        }
+
+        function showRandomDateQuestion() {
+            const randomIndex = Math.floor(Math.random() * dateQuestions.length);
+            const questionDiv = document.getElementById('dateQuestions');
+            questionDiv.innerHTML = `
+                <div class="question-card">
+                    <p>${dateQuestions[randomIndex]}</p>
+                </div>
+            `;
+        }
+
+        // Show initial questions
+        showRandomQuestion('truth');
+        showRandomDateQuestion();
+    </script>
+</body>
+</html>
